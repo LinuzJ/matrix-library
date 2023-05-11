@@ -9,6 +9,9 @@ int main()
     double i = 0.5;
 
     SimpleMatrix m(r, c, i);
-    m.print();
+    SimpleMatrix b(r, c, 0.2);
+
+    SimpleMatrix x = m + b;
+    x.print();
     return 0;
 }

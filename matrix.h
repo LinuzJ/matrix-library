@@ -25,7 +25,7 @@ namespace Matrix
 
         // Addition
         SimpleMatrix add(SimpleMatrix x);
-        SimpleMatrix operator+(SimpleMatrix y);
+        SimpleMatrix operator+(SimpleMatrix x);
 
         // Subtract
         SimpleMatrix subtract(SimpleMatrix x);
@@ -35,11 +35,13 @@ namespace Matrix
         SimpleMatrix multiply(double x);
         SimpleMatrix operator*(double x);
 
-        // Divison
-        SimpleMatrix divide(double x);
-        SimpleMatrix operator/(double x);
         // ----------------------------------
-
+        
+        // Helpers
+        // ----------------------------------
+        vector<double> getCol(unsigned x);
+        // ----------------------------------
+       
         // Visual
         // ----------------------------------
         void print();
