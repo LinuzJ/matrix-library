@@ -32,7 +32,7 @@ SimpleMatrix::SimpleMatrix(vector<vector<double> > input)
 
 SimpleMatrix SimpleMatrix::add(SimpleMatrix x)
 {
-    vector<vector<double> > newM = this->m;
+    vector<vector<double> > tempM = this->m;
 
     // Make sure dimensions match
     if (this->col_size != x.col_size || this->row_size != x.row_size) {
@@ -41,17 +41,20 @@ SimpleMatrix SimpleMatrix::add(SimpleMatrix x)
 
     vector<double> currentCol;
     for (int i = 0; i < this->col_size; i++) {
-        currentCol = this->getCol(i);
+        currentCol = x.getCol(i);
         for (int j = 0; j < this->row_size; j++) {
-            newM[i][j] = this->m[i][j] + currentCol[j];
+            tempM[i][j] = this->m[i][j] + currentCol[j];
         }
     }
-    return SimpleMatrix(newM);
+
+    SimpleMatrix returnM(tempM);
+    return returnM;
 }
 
 SimpleMatrix SimpleMatrix::operator+(SimpleMatrix x)
 {
-    return this->add(x);
+    SimpleMatrix returnM = this->add(x);
+    return returnM;
 }
 
 SimpleMatrix SimpleMatrix::subtract(SimpleMatrix x)
