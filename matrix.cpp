@@ -102,6 +102,18 @@ SimpleMatrix SimpleMatrix::operator*(double x)
 
 // ----------------------------------
 
+// Operations
+// ----------------------------------
+
+SimpleMatrix::transpose() 
+{
+    // TODO
+    return this;
+}
+
+
+// ----------------------------------
+
 // Helpers
 // ----------------------------------
 

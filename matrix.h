@@ -36,7 +36,15 @@ namespace Matrix
         SimpleMatrix operator*(double x);
 
         // ----------------------------------
-        
+
+
+        // More operations
+        // ----------------------------------
+
+        SimpleMatrix transpose();
+
+        // ----------------------------------
+
         // Helpers
         // ----------------------------------
         vector<double> getCol(unsigned x);
