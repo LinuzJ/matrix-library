@@ -33,7 +33,7 @@ SimpleMatrix::SimpleMatrix(vector<vector<double>> input)
 
 SimpleMatrix SimpleMatrix::add(SimpleMatrix x)
 {
-    vector<vector<double>> tempM = this->m;
+    vector<vector<double>> new_m = this->m;
 
     // Make sure dimensions match
     if (this->col_size != x.col_size || this->row_size != x.row_size)
@@ -41,29 +41,27 @@ SimpleMatrix SimpleMatrix::add(SimpleMatrix x)
         return this->m;
     }
 
-    vector<double> currentCol;
+    vector<double> current_col;
     for (int i = 0; i < this->col_size; i++)
     {
-        currentCol = x.getCol(i);
+        current_col = x.getCol(i);
         for (int j = 0; j < this->row_size; j++)
         {
-            tempM[i][j] = this->m[i][j] + currentCol[j];
+            new_m[i][j] = this->m[i][j] + current_col[j];
         }
     }
 
-    SimpleMatrix returnM(tempM);
-    return returnM;
+    return SimpleMatrix(new_m);
 }
 
 SimpleMatrix SimpleMatrix::operator+(SimpleMatrix x)
 {
-    SimpleMatrix returnM = this->add(x);
-    return returnM;
+    return this->add(x);
 }
 
 SimpleMatrix SimpleMatrix::subtract(SimpleMatrix x)
 {
-    vector<vector<double>> newM = this->m;
+    vector<vector<double>> new_m = this->m;
 
     // Make sure dimensions match
     if (this->col_size != x.col_size || this->row_size != x.row_size)
@@ -71,16 +69,16 @@ SimpleMatrix SimpleMatrix::subtract(SimpleMatrix x)
         return this->m;
     }
 
-    vector<double> currentCol;
+    vector<double> current_col;
     for (int i = 0; i < this->col_size; i++)
     {
-        currentCol = this->getCol(i);
+        current_col = this->getCol(i);
         for (int j = 0; j < this->row_size; j++)
         {
-            newM[i][j] = this->m[i][j] - currentCol[j];
+            new_m[i][j] = this->m[i][j] - current_col[j];
         }
     }
-    return SimpleMatrix(newM);
+    return SimpleMatrix(new_m);
 }
 
 SimpleMatrix SimpleMatrix::operator-(SimpleMatrix x)
