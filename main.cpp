@@ -11,7 +11,7 @@ int main()
     SimpleMatrix m(r, c, i);
     SimpleMatrix b(r, c, 0.2);
 
-    SimpleMatrix x = m.transpose();
+    SimpleMatrix x = m.multiply(b);
     x.print();
     return 0;
 }

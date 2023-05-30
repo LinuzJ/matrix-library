@@ -11,18 +11,17 @@ namespace Matrix
     class SimpleMatrix
     {
     private:
-        unsigned row_size;
-        unsigned col_size;
-        vector<vector<double> > m;
+        unsigned row_amount;
+        unsigned col_amount;
+        vector<vector<double>> m;
 
     public:
         // Constructors
         SimpleMatrix(unsigned, unsigned, double);
-        SimpleMatrix(vector<vector<double> >);
+        SimpleMatrix(vector<vector<double>>);
 
         // Scalar operations
         // ----------------------------------
-
         // Addition
         SimpleMatrix add(SimpleMatrix x);
         SimpleMatrix operator+(SimpleMatrix x);
@@ -34,22 +33,20 @@ namespace Matrix
         // Multiplication
         SimpleMatrix multiply(double x);
         SimpleMatrix operator*(double x);
-
         // ----------------------------------
-
 
         // More operations
         // ----------------------------------
-
+        SimpleMatrix multiply(SimpleMatrix other);
         SimpleMatrix transpose();
-
+        SimpleMatrix inverse();
         // ----------------------------------
 
         // Helpers
         // ----------------------------------
         vector<double> getCol(unsigned x);
         // ----------------------------------
-       
+
         // Visual
         // ----------------------------------
         void print();

@@ -5,7 +5,7 @@ matrix.o: matrix.cpp
 	g++ -std=c++11 -c matrix.cpp
 
 main.o: main.cpp
-	g++ -c main.cpp
+	g++ -std=c++11 -c main.cpp
 
 clean: 
 	rm *.o main
