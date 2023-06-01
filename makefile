@@ -1,11 +1,14 @@
-main: matrix.o main.o
-	g++ matrix.o main.o -o main
+CC = g++
+CPPFLAGS = -Wall -std=c++11
 
-matrix.o: matrix.cpp
-	g++ -std=c++11 -c matrix.cpp
+main: matrix.o main.o
+	${CC} matrix.o main.o -o main
+
+matrix.o: matrix/matrix.cpp
+	${CC} ${CPPFLAGS} -c matrix/matrix.cpp
 
 main.o: main.cpp
-	g++ -std=c++11 -c main.cpp
+	${CC} ${CPPFLAGS} -c main.cpp
 
 clean: 
 	rm *.o main
