@@ -23,23 +23,23 @@ namespace Matrix
         // Scalar operations
         // ----------------------------------
         // Addition
-        SimpleMatrix add(SimpleMatrix x);
-        SimpleMatrix operator+(SimpleMatrix x);
+        SimpleMatrix *add(SimpleMatrix x);
+        SimpleMatrix *operator+(SimpleMatrix x);
 
         // Subtract
-        SimpleMatrix subtract(SimpleMatrix x);
-        SimpleMatrix operator-(SimpleMatrix x);
+        SimpleMatrix *subtract(SimpleMatrix x);
+        SimpleMatrix *operator-(SimpleMatrix x);
 
         // Multiplication
-        SimpleMatrix multiply(double x);
-        SimpleMatrix operator*(double x);
+        SimpleMatrix *multiply(double x);
+        SimpleMatrix *operator*(double x);
         // ----------------------------------
 
         // More operations
         // ----------------------------------
-        SimpleMatrix multiply(SimpleMatrix other);
-        SimpleMatrix transpose();
-        SimpleMatrix inverse();
+        SimpleMatrix *multiply(SimpleMatrix other);
+        SimpleMatrix *transpose();
+        SimpleMatrix *inverse();
         // ----------------------------------
 
         // Helpers

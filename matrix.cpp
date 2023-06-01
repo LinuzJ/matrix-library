@@ -31,14 +31,14 @@ SimpleMatrix::SimpleMatrix(vector<vector<double>> input)
 
 // ----------------------------------
 
-SimpleMatrix SimpleMatrix::add(SimpleMatrix x)
+SimpleMatrix *SimpleMatrix::add(SimpleMatrix x)
 {
     vector<vector<double>> new_m = this->m;
 
     // Make sure dimensions match
     if (this->col_amount != x.col_amount || this->row_amount != x.row_amount)
     {
-        return this->m;
+        return NULL;
     }
 
     vector<double> current_col;
@@ -51,22 +51,22 @@ SimpleMatrix SimpleMatrix::add(SimpleMatrix x)
         }
     }
 
-    return SimpleMatrix(new_m);
+    return new SimpleMatrix(new_m);
 }
 
-SimpleMatrix SimpleMatrix::operator+(SimpleMatrix x)
+SimpleMatrix *SimpleMatrix::operator+(SimpleMatrix x)
 {
     return this->add(x);
 }
 
-SimpleMatrix SimpleMatrix::subtract(SimpleMatrix x)
+SimpleMatrix *SimpleMatrix::subtract(SimpleMatrix x)
 {
     vector<vector<double>> new_m = this->m;
 
     // Make sure dimensions match
     if (this->col_amount != x.col_amount || this->row_amount != x.row_amount)
     {
-        return this->m;
+        return NULL;
     }
 
     vector<double> current_col;
@@ -78,15 +78,15 @@ SimpleMatrix SimpleMatrix::subtract(SimpleMatrix x)
             new_m[i][j] = this->m[i][j] - current_col[j];
         }
     }
-    return SimpleMatrix(new_m);
+    return new SimpleMatrix(new_m);
 }
 
-SimpleMatrix SimpleMatrix::operator-(SimpleMatrix x)
+SimpleMatrix *SimpleMatrix::operator-(SimpleMatrix x)
 {
     return this->subtract(x);
 }
 
-SimpleMatrix SimpleMatrix::multiply(double x)
+SimpleMatrix *SimpleMatrix::multiply(double x)
 {
     vector<vector<double>> new_m = this->m;
 
@@ -97,10 +97,10 @@ SimpleMatrix SimpleMatrix::multiply(double x)
             new_m[i][j] = this->m[i][j] * x;
         }
     }
-    return SimpleMatrix(new_m);
+    return new SimpleMatrix(new_m);
 }
 
-SimpleMatrix SimpleMatrix::operator*(double x)
+SimpleMatrix *SimpleMatrix::operator*(double x)
 {
     return this->multiply(x);
 }
@@ -110,7 +110,7 @@ SimpleMatrix SimpleMatrix::operator*(double x)
 // Operations
 // ----------------------------------
 
-SimpleMatrix SimpleMatrix::transpose()
+SimpleMatrix *SimpleMatrix::transpose()
 {
     vector<vector<double>> new_m;
     new_m.resize(this->row_amount);
@@ -131,15 +131,15 @@ SimpleMatrix SimpleMatrix::transpose()
     this->col_amount = this->row_amount;
     this->row_amount = temp_copy;
 
-    return SimpleMatrix(new_m);
+    return new SimpleMatrix(new_m);
 }
 
-SimpleMatrix SimpleMatrix::multiply(SimpleMatrix other)
+SimpleMatrix *SimpleMatrix::multiply(SimpleMatrix other)
 {
     if (this->col_amount != other.row_amount)
     {
         // TODO: fix error
-        return this->m;
+        return NULL;
     }
 
     // Init new correctly sized matrix
@@ -161,7 +161,7 @@ SimpleMatrix SimpleMatrix::multiply(SimpleMatrix other)
         }
     }
 
-    return SimpleMatrix(new_m);
+    return new SimpleMatrix(new_m);
 }
 // ----------------------------------
 
