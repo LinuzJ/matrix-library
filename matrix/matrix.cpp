@@ -136,7 +136,7 @@ SimpleMatrix *SimpleMatrix::transpose()
 
 SimpleMatrix *SimpleMatrix::multiply(SimpleMatrix other)
 {
-    if (this->col_amount != other.row_amount)
+    if (this->row_amount != other.col_amount)
     {
         // TODO: fix error
         return NULL;
@@ -144,10 +144,10 @@ SimpleMatrix *SimpleMatrix::multiply(SimpleMatrix other)
 
     // Init new correctly sized matrix
     vector<vector<double>> new_m;
-    new_m.resize(this->col_amount);
-    for (int i = 0; i < this->col_amount; i++)
+    new_m.resize(this->row_amount);
+    for (int i = 0; i < this->row_amount; i++)
     {
-        new_m[i].resize(this->col_amount);
+        new_m[i].resize(this->row_amount);
     }
 
     for (int i = 0; i < other.col_amount; i++)
