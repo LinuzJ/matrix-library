@@ -1,5 +1,4 @@
 #include "matrix.h"
-#include <iostream>
 // ----------------------------------
 using namespace Matrix;
 // ----------------------------------
@@ -148,7 +147,7 @@ SimpleMatrix *SimpleMatrix::multiply(SimpleMatrix other)
     {
         new_m[i].resize(this->row_amount);
     }
-
+#pragma omp for parallel
     for (int i = 0; i < other.col_amount; i++)
     {
         for (int j = 0; j < this->row_amount; j++)

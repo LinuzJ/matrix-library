@@ -4,8 +4,9 @@ using namespace Matrix;
 
 int main()
 {
-    unsigned r = 3;
-    unsigned c = 2;
+    unsigned time = clock();
+    unsigned r = 3000;
+    unsigned c = 2000;
     double i = 0.5;
 
     SimpleMatrix m(r, c, i);
@@ -13,6 +14,10 @@ int main()
 
     SimpleMatrix *x = m.multiply(b);
     SimpleMatrix final = *x;
-    final.print();
+
+    time = clock() - time;
+
+    std::cout << "Matrix multiplication finished in: " << (float)time / CLOCKS_PER_SEC << " seconds.";
+
     return 0;
 }

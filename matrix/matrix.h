@@ -2,6 +2,8 @@
 #define SIMPLE_MATRIX_H
 // ----------------------------------
 #include <vector>
+#include <ctime>
+#include <iostream>
 // ----------------------------------
 using std::vector;
 // ----------------------------------
