@@ -44,7 +44,8 @@ namespace Matrix
 
         // Helpers
         // ----------------------------------
-        vector<double> getCol(unsigned x);
+        vector<double> getCol(unsigned c);
+        vector<double> getRow(unsigned r);
         // ----------------------------------
 
         // Visual

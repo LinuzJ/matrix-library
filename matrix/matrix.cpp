@@ -168,9 +168,21 @@ SimpleMatrix *SimpleMatrix::multiply(SimpleMatrix other)
 // Helpers
 // ----------------------------------
 
-vector<double> SimpleMatrix::getCol(unsigned x)
+vector<double> SimpleMatrix::getCol(unsigned c)
 {
-    return this->m[x];
+    return this->m[c];
+}
+
+vector<double> SimpleMatrix::getRow(unsigned r)
+{
+    vector<double> row(this->col_amount, 0);
+
+    for (int c = 0; c < this->col_amount; c++)
+    {
+        row[c] = this->m[c][r];
+    }
+
+    return row;
 }
 
 // ----------------------------------
