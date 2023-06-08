@@ -2,7 +2,6 @@
 #include <iostream>
 // ----------------------------------
 using namespace Matrix;
-using namespace std;
 // ----------------------------------
 
 SimpleMatrix::SimpleMatrix(unsigned rows, unsigned cols, double init_value)
@@ -192,14 +191,14 @@ vector<double> SimpleMatrix::getRow(unsigned r)
 
 void SimpleMatrix::print()
 {
-    cout << "[\n";
+    std::cout << "[\n";
     for (int i = 0; i < this->row_amount; i++)
     {
         for (int j = 0; j < this->col_amount; j++)
         {
-            cout << this->m[i][j] << " ";
+            std::cout << this->m[i][j] << " ";
         }
-        cout << "\n";
+        std::cout << "\n";
     }
-    cout << "]\n";
+    std::cout << "]\n";
 }
